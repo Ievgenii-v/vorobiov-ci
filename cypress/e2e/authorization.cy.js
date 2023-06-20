@@ -21,12 +21,12 @@ it('Authorization', { retries: 2 }, () => {
 // 		cy.setCookie('AC_SF_8CEFDA09D5', cookie.value)
 // 	});
 // });
-it.only('Authorization', { retries: 2 }, () => {
+it('Authorization', { retries: 2 }, () => {
 	user.username = 'Josue.Brown50';
 	user.password = 'TestPassword';
 	homePage.visit();
 	backgroundLogin(user);
-	findProduct('Benefit Bella Bamba');
+	// findProduct('Benefit Bella Bamba');
 	// homePage.getLoginOrRegisterButton().click();
 	// loginPage.submitLoginForm(user.username, user.password);
 });
