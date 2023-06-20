@@ -1,3 +1,25 @@
 pipeline{
     agent any
+    
+    stages{
+        stages(build) {
+            steps {
+                sh 'npm ci'
+            }
+        }
+        stage('Cypress run') {
+            steps {
+                sh 'allure:clearData'
+                sh 'cy:testWithAllureReport'
+            }
+        }
+        stage('Generate Allure reoprt') {
+            steps {
+                sh 'allure:generateReport'
+                allue(
+                    results [['allure-results']]
+                )
+            }
+        }
+    }
 }
